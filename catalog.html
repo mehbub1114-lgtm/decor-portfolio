@@ -66,11 +66,11 @@
         }
 
         .menu-card {
-            background: white;
+            background: transparent;
             border-radius: 20px;
-            padding: 40px;
+            padding: 0;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: none;
             transition: all 0.3s;
             cursor: pointer;
             text-decoration: none;
@@ -79,24 +79,24 @@
         }
 
         .menu-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.2);
+            transform: scale(1.05);
         }
 
-        .menu-card .icon {
-            font-size: 4em;
-            margin-bottom: 20px;
+        .menu-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s;
         }
 
-        .menu-card h2 {
-            font-size: 1.8em;
-            color: #c41e3a;
-            margin-bottom: 10px;
+        .menu-card:hover img {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
+        .menu-card h2,
         .menu-card p {
-            color: #666;
-            font-size: 1em;
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -121,39 +121,27 @@
 
         <div class="menu-grid">
             <a href="favor-wall.html" class="menu-card">
-                <div class="icon">🎁</div>
-                <h2>Favor Wall</h2>
-                <p>Beautiful favor wall displays</p>
+                <img src="images/favor-wall.png" alt="Favor Wall">
             </a>
 
             <a href="rippled-arch.html" class="menu-card">
-                <div class="icon">🌊</div>
-                <h2>Rippled Arch</h2>
-                <p>Elegant rippled arch designs</p>
+                <img src="images/rippled-arch.png" alt="Rippled Arch">
             </a>
 
             <a href="solid-arch.html" class="menu-card">
-                <div class="icon">⛩️</div>
-                <h2>Solid Arch</h2>
-                <p>Classic solid arch structures</p>
+                <img src="images/plain-arch.png" alt="Solid Arch">
             </a>
 
             <a href="hollow-metal.html" class="menu-card">
-                <div class="icon">⭕</div>
-                <h2>Hollow Metal Arch</h2>
-                <p>Modern metal arch designs</p>
+                <img src="images/metal-arch.png" alt="Hollow Metal Arch">
             </a>
 
             <a href="welcome-signs.html" class="menu-card">
-                <div class="icon">👋</div>
-                <h2>Welcome Signs</h2>
-                <p>Custom welcome signage</p>
+                <img src="images/welcome-signs.png" alt="Welcome Signs">
             </a>
 
             <a href="3d-signs.html" class="menu-card">
-                <div class="icon">✨</div>
-                <h2>3D Signs</h2>
-                <p>Dimensional 3D lettering</p>
+                <img src="images/3d-signs.png" alt="3D Signs">
             </a>
         </div>
     </div>
