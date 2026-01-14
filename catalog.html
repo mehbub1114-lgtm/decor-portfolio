@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Myna Catalogue - Backdrops & Decor</title>
+    <title>Myna Catalogue Menu</title>
     <style>
         * {
             margin: 0;
@@ -21,22 +21,6 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #c41e3a;
-        }
-
-        header p {
-            font-size: 1.1em;
-            color: #555;
         }
 
         .back-btn {
@@ -58,143 +42,70 @@
             transform: translateY(-2px);
         }
 
-        .upload-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .upload-section h2 {
-            margin-bottom: 20px;
+        header h1 {
+            font-size: 3em;
             color: #c41e3a;
+            margin-bottom: 10px;
         }
 
-        .upload-box {
-            border: 3px dashed #c41e3a;
-            border-radius: 10px;
+        header p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 20px;
             padding: 40px;
             text-align: center;
-            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s;
-        }
-
-        .upload-box:hover {
-            background: #fff5f5;
-            border-color: #a01829;
-        }
-
-        .upload-box input {
-            display: none;
-        }
-
-        .upload-btn {
-            background: #c41e3a;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
             cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-
-        .upload-btn:hover {
-            background: #a01829;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: transform 0.3s;
-            background: white;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
-        .gallery-item img,
-        .gallery-item video {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
+            text-decoration: none;
+            color: inherit;
             display: block;
         }
 
-        .gallery-item .delete-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(196, 30, 58, 0.9);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            opacity: 0;
-            transition: opacity 0.3s;
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.2);
         }
 
-        .gallery-item:hover .delete-btn {
-            opacity: 1;
+        .menu-card .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+        .menu-card h2 {
+            font-size: 1.8em;
+            color: #c41e3a;
+            margin-bottom: 10px;
         }
 
-        .modal.active {
-            display: flex;
-        }
-
-        .modal img,
-        .modal video {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
+        .menu-card p {
+            color: #666;
+            font-size: 1em;
         }
 
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2em;
             }
-            
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+            .menu-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -204,145 +115,47 @@
         <a href="index.html" class="back-btn">← Back to Home</a>
         
         <header>
-            <h1>Myna Backdrops & Decor Rental Catalogue</h1>
-            <p>Explore our beautiful collection</p>
+            <h1>Myna Catalogue</h1>
+            <p>Choose a category to explore</p>
         </header>
 
-        <div class="upload-section">
-            <h2>Upload New Items</h2>
-            <div class="upload-box" onclick="document.getElementById('fileInput').click()">
-                <p>📸 Click here or drag images/videos to upload</p>
-                <input type="file" id="fileInput" accept="image/*,video/*" multiple>
-                <button class="upload-btn" onclick="event.stopPropagation(); uploadItems()">Upload Items</button>
-            </div>
+        <div class="menu-grid">
+            <a href="favor-wall.html" class="menu-card">
+                <div class="icon">🎁</div>
+                <h2>Favor Wall</h2>
+                <p>Beautiful favor wall displays</p>
+            </a>
+
+            <a href="rippled-arch.html" class="menu-card">
+                <div class="icon">🌊</div>
+                <h2>Rippled Arch</h2>
+                <p>Elegant rippled arch designs</p>
+            </a>
+
+            <a href="solid-arch.html" class="menu-card">
+                <div class="icon">⛩️</div>
+                <h2>Solid Arch</h2>
+                <p>Classic solid arch structures</p>
+            </a>
+
+            <a href="hollow-metal.html" class="menu-card">
+                <div class="icon">⭕</div>
+                <h2>Hollow Metal Arch</h2>
+                <p>Modern metal arch designs</p>
+            </a>
+
+            <a href="welcome-signs.html" class="menu-card">
+                <div class="icon">👋</div>
+                <h2>Welcome Signs</h2>
+                <p>Custom welcome signage</p>
+            </a>
+
+            <a href="3d-signs.html" class="menu-card">
+                <div class="icon">✨</div>
+                <h2>3D Signs</h2>
+                <p>Dimensional 3D lettering</p>
+            </a>
         </div>
-
-        <div class="gallery" id="gallery"></div>
     </div>
-
-    <div class="modal" id="modal">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <img id="modalContent" src="" alt="Full size">
-    </div>
-
-    <script>
-        // Your permanent catalogue items from GitHub
-        const catalogueItems = [
-            { type: 'video', src: 'images/__7ab01404-753b-4c6b-8fdc-99e04c4f048d.mp4' },
-            { type: 'image', src: 'images/____1fc01f42-2dbb-472f-9578-e3c0f384a053.jpg__' }
-        ];
-
-        let uploadedItems = [];
-
-        // Load items on page load
-        window.onload = function() {
-            displayGallery();
-        };
-
-        function uploadItems() {
-            const input = document.getElementById('fileInput');
-            const files = input.files;
-
-            if (files.length === 0) {
-                alert('Please select images or videos first!');
-                return;
-            }
-
-            for (let file of files) {
-                const reader = new FileReader();
-                const isVideo = file.type.startsWith('video/');
-                
-                reader.onload = function(e) {
-                    uploadedItems.push({
-                        type: isVideo ? 'video' : 'image',
-                        src: e.target.result
-                    });
-                    displayGallery();
-                };
-                reader.readAsDataURL(file);
-            }
-
-            input.value = '';
-        }
-
-        function displayGallery() {
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = '';
-
-            // Display permanent catalogue items
-            catalogueItems.forEach((item, index) => {
-                createGalleryItem(item, index, false);
-            });
-
-            // Display uploaded items
-            uploadedItems.forEach((item, index) => {
-                createGalleryItem(item, index, true);
-            });
-        }
-
-        function createGalleryItem(item, index, canDelete) {
-            const gallery = document.getElementById('gallery');
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-
-            if (item.type === 'video') {
-                galleryItem.innerHTML = `
-                    <video src="${item.src}" style="width: 100%; height: 300px; object-fit: cover;" 
-                           onclick="openModal('${item.src}', 'video')"></video>
-                    ${canDelete ? `<button class="delete-btn" onclick="deleteItem(${index})">Delete</button>` : ''}
-                `;
-            } else {
-                galleryItem.innerHTML = `
-                    <img src="${item.src}" alt="Decor item ${index + 1}" 
-                         onclick="openModal('${item.src}', 'image')">
-                    ${canDelete ? `<button class="delete-btn" onclick="deleteItem(${index})">Delete</button>` : ''}
-                `;
-            }
-
-            gallery.appendChild(galleryItem);
-        }
-
-        function deleteItem(index) {
-            if (confirm('Are you sure you want to delete this item?')) {
-                uploadedItems.splice(index, 1);
-                displayGallery();
-            }
-        }
-
-        function openModal(src, type) {
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modalContent');
-            
-            modal.classList.add('active');
-            
-            if (type === 'video') {
-                modalContent.outerHTML = `<video id="modalContent" src="${src}" controls autoplay style="max-width: 90%; max-height: 90%; border-radius: 10px;"></video>`;
-            } else {
-                if (modalContent.tagName === 'VIDEO') {
-                    modalContent.outerHTML = `<img id="modalContent" src="${src}" alt="Full size" style="max-width: 90%; max-height: 90%; border-radius: 10px;">`;
-                } else {
-                    modalContent.src = src;
-                }
-            }
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modalContent');
-            
-            if (modalContent.tagName === 'VIDEO') {
-                modalContent.pause();
-            }
-            
-            modal.classList.remove('active');
-        }
-
-        // Close modal on background click
-        document.getElementById('modal').onclick = function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        };
-    </script>
 </body>
 </html>
