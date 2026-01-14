@@ -190,8 +190,8 @@
         <div class="upload-section">
             <h2>Upload New Images</h2>
             <div class="upload-box" onclick="document.getElementById('fileInput').click()">
-                <p>📸 Click here or drag images to upload</p>
-                <input type="file" id="fileInput" accept="image/*" multiple>
+                <p>📸 Click here or drag images/videos to upload</p>
+                <input type="file" id="fileInput" accept="image/*,video/*" multiple>
                 <button class="upload-btn" onclick="event.stopPropagation(); uploadImages()">Upload Images</button>
             </div>
         </div>
@@ -205,11 +205,17 @@
     </div>
 
     <script>
-        let images = [];
+        // Your permanent catalogue items from GitHub
+        const catalogueItems = [
+            { type: 'video', src: 'images/__7ab01404-753b-4c6b-8fdc-99e04c4f048d.mp4' },
+            { type: 'image', src: 'images/____1fc01f42-2dbb-472f-9578-e3c0f384a053.jpg__' }
+        ];
 
-        // Load images from memory on page load
+        let uploadedItems = [];
+
+        // Load items on page load
         window.onload = function() {
-            loadImages();
+            displayGallery();
         };
 
         function uploadImages() {
@@ -217,15 +223,19 @@
             const files = input.files;
 
             if (files.length === 0) {
-                alert('Please select images first!');
+                alert('Please select images or videos first!');
                 return;
             }
 
             for (let file of files) {
                 const reader = new FileReader();
+                const isVideo = file.type.startsWith('video/');
+                
                 reader.onload = function(e) {
-                    images.push(e.target.result);
-                    saveImages();
+                    uploadedItems.push({
+                        type: isVideo ? 'video' : 'image',
+                        src: e.target.result
+                    });
                     displayGallery();
                 };
                 reader.readAsDataURL(file);
@@ -234,46 +244,76 @@
             input.value = '';
         }
 
-        function saveImages() {
-            // Store in memory for this session
-            // Note: Images will be lost on page refresh
-            // For permanent storage, you'd need to commit to GitHub
-        }
-
-        function loadImages() {
-            displayGallery();
-        }
-
         function displayGallery() {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
 
-            images.forEach((img, index) => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                item.innerHTML = `
-                    <img src="${img}" alt="Decor image ${index + 1}" onclick="openModal('${img}')">
-                    <button class="delete-btn" onclick="deleteImage(${index})">Delete</button>
-                `;
-                gallery.appendChild(item);
+            // Display permanent catalogue items
+            catalogueItems.forEach((item, index) => {
+                createGalleryItem(item, index, false);
+            });
+
+            // Display uploaded items
+            uploadedItems.forEach((item, index) => {
+                createGalleryItem(item, index, true);
             });
         }
 
-        function deleteImage(index) {
-            if (confirm('Are you sure you want to delete this image?')) {
-                images.splice(index, 1);
-                saveImages();
+        function createGalleryItem(item, index, canDelete) {
+            const gallery = document.getElementById('gallery');
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+
+            if (item.type === 'video') {
+                galleryItem.innerHTML = `
+                    <video src="${item.src}" style="width: 100%; height: 300px; object-fit: cover;" 
+                           onclick="openModal('${item.src}', 'video')"></video>
+                    ${canDelete ? `<button class="delete-btn" onclick="deleteItem(${index})">Delete</button>` : ''}
+                `;
+            } else {
+                galleryItem.innerHTML = `
+                    <img src="${item.src}" alt="Decor item ${index + 1}" 
+                         onclick="openModal('${item.src}', 'image')">
+                    ${canDelete ? `<button class="delete-btn" onclick="deleteItem(${index})">Delete</button>` : ''}
+                `;
+            }
+
+            gallery.appendChild(galleryItem);
+        }
+
+        function deleteItem(index) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                uploadedItems.splice(index, 1);
                 displayGallery();
             }
         }
 
-        function openModal(imgSrc) {
-            document.getElementById('modal').classList.add('active');
-            document.getElementById('modalImg').src = imgSrc;
+        function openModal(src, type) {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modalImg');
+            
+            modal.classList.add('active');
+            
+            if (type === 'video') {
+                modalImg.outerHTML = `<video id="modalImg" src="${src}" controls autoplay style="max-width: 90%; max-height: 90%; border-radius: 10px;"></video>`;
+            } else {
+                if (modalImg.tagName === 'VIDEO') {
+                    modalImg.outerHTML = `<img id="modalImg" src="${src}" alt="Full size image" style="max-width: 90%; max-height: 90%; border-radius: 10px;">`;
+                } else {
+                    modalImg.src = src;
+                }
+            }
         }
 
         function closeModal() {
-            document.getElementById('modal').classList.remove('active');
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modalImg');
+            
+            if (modalContent.tagName === 'VIDEO') {
+                modalContent.pause();
+            }
+            
+            modal.classList.remove('active');
         }
 
         // Close modal on background click
