@@ -26,20 +26,14 @@
             max-width: 800px;
         }
 
-        .catalog-cover {
-            width: 100%;
-            max-width: 500px;
+        .logo {
+            width: 200px;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             margin-bottom: 40px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .catalog-cover:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        .catalog-cover {
+            display: none;
         }
 
         .view-catalog-btn {
@@ -107,7 +101,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="images/catalog-cover.jpg" alt="Myna Catalog 2026" class="catalog-cover" onclick="window.location.href='catalog.html'">
+        <img src="images/logo.png" alt="Myna Logo" class="logo">
         
         <a href="catalog.html" class="view-catalog-btn">VIEW CATALOG</a>
         
