@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Decor Business</title>
+    <title>Myna Backdrops & Decor Rental</title>
     <style>
         * {
             margin: 0;
@@ -15,313 +15,109 @@
             font-family: 'Arial', sans-serif;
             background: #faf3e0;
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
             text-align: center;
-            color: white;
-            margin-bottom: 40px;
+            max-width: 800px;
         }
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        .catalog-cover {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .catalog-cover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .view-catalog-btn {
+            background: #c41e3a;
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .view-catalog-btn:hover {
+            background: #a01829;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.4);
+        }
+
+        .social {
+            margin-top: 30px;
+            font-size: 1.1em;
             color: #333;
         }
 
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-            color: #555;
-        }
-
-        .upload-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .upload-section h2 {
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-
-        .upload-box {
-            border: 3px dashed #667eea;
-            border-radius: 10px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .upload-box:hover {
-            background: #f0f4ff;
-            border-color: #764ba2;
-        }
-
-        .upload-box input {
-            display: none;
-        }
-
-        .upload-btn {
-            background: #667eea;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-
-        .upload-btn:hover {
-            background: #764ba2;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+        .contact {
             margin-top: 20px;
         }
 
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-item .delete-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 0, 0, 0.8);
+        .phone-link {
+            display: inline-block;
+            background: #c41e3a;
             color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            opacity: 0;
-            transition: opacity 0.3s;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 3px 15px rgba(196, 30, 58, 0.3);
         }
 
-        .gallery-item:hover .delete-btn {
-            opacity: 1;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
+        .phone-link:hover {
+            background: #a01829;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(196, 30, 58, 0.4);
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
+            .catalog-cover {
+                max-width: 100%;
             }
             
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .view-catalog-btn {
+                padding: 15px 40px;
+                font-size: 1.1em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Myna Backdrops & Decor Rental Catalogue</h1>
-            <p>Beautiful spaces, beautifully captured</p>
-        </header>
-
-        <div class="upload-section">
-            <h2>Upload New Images</h2>
-            <div class="upload-box" onclick="document.getElementById('fileInput').click()">
-                <p>📸 Click here or drag images/videos to upload</p>
-                <input type="file" id="fileInput" accept="image/*,video/*" multiple>
-                <button class="upload-btn" onclick="event.stopPropagation(); uploadImages()">Upload Images</button>
-            </div>
+        <img src="images/catalog-cover.jpg" alt="Myna Catalog 2026" class="catalog-cover" onclick="window.location.href='catalog.html'">
+        
+        <a href="catalog.html" class="view-catalog-btn">VIEW CATALOG</a>
+        
+        <div class="social">
+            <p>@mynabackdrops</p>
         </div>
-
-        <div class="gallery" id="gallery"></div>
+        
+        <div class="contact">
+            <a href="tel:+14169976627" class="phone-link">📞 Call Us: 416-997-6627</a>
+        </div>
     </div>
-
-    <div class="modal" id="modal">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <img id="modalImg" src="" alt="Full size image">
-    </div>
-
-    <script>
-        // Your permanent catalogue items from GitHub
-        const catalogueItems = [
-            { type: 'video', src: 'images/__7ab01404-753b-4c6b-8fdc-99e04c4f048d.mp4' },
-            { type: 'image', src: 'images/____1fc01f42-2dbb-472f-9578-e3c0f384a053.jpg__' }
-        ];
-
-        let uploadedItems = [];
-
-        // Load items on page load
-        window.onload = function() {
-            displayGallery();
-        };
-
-        function uploadImages() {
-            const input = document.getElementById('fileInput');
-            const files = input.files;
-
-            if (files.length === 0) {
-                alert('Please select images or videos first!');
-                return;
-            }
-
-            for (let file of files) {
-                const reader = new FileReader();
-                const isVideo = file.type.startsWith('video/');
-                
-                reader.onload = function(e) {
-                    uploadedItems.push({
-                        type: isVideo ? 'video' : 'image',
-                        src: e.target.result
-                    });
-                    displayGallery();
-                };
-                reader.readAsDataURL(file);
-            }
-
-            input.value = '';
-        }
-
-        function displayGallery() {
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = '';
-
-            // Display permanent catalogue items
-            catalogueItems.forEach((item, index) => {
-                createGalleryItem(item, index, false);
-            });
-
-            // Display uploaded items
-            uploadedItems.forEach((item, index) => {
-                createGalleryItem(item, index, true);
-            });
-        }
-
-        function createGalleryItem(item, index, canDelete) {
-            const gallery = document.getElementById('gallery');
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-
-            if (item.type === 'video') {
-                galleryItem.innerHTML = `
-                    <video src="${item.src}" style="width: 100%; height: 300px; object-fit: cover;" 
-                           onclick="openModal('${item.src}', 'video')"></video>
-                    ${canDelete ? `<button class="delete-btn" onclick="deleteItem(${index})">Delete</button>` : ''}
-                `;
-            } else {
-                galleryItem.innerHTML = `
-                    <img src="${item.src}" alt="Decor item ${index + 1}" 
-                         onclick="openModal('${item.src}', 'image')">
-                    ${canDelete ? `<button class="delete-btn" onclick="deleteItem(${index})">Delete</button>` : ''}
-                `;
-            }
-
-            gallery.appendChild(galleryItem);
-        }
-
-        function deleteItem(index) {
-            if (confirm('Are you sure you want to delete this item?')) {
-                uploadedItems.splice(index, 1);
-                displayGallery();
-            }
-        }
-
-        function openModal(src, type) {
-            const modal = document.getElementById('modal');
-            const modalImg = document.getElementById('modalImg');
-            
-            modal.classList.add('active');
-            
-            if (type === 'video') {
-                modalImg.outerHTML = `<video id="modalImg" src="${src}" controls autoplay style="max-width: 90%; max-height: 90%; border-radius: 10px;"></video>`;
-            } else {
-                if (modalImg.tagName === 'VIDEO') {
-                    modalImg.outerHTML = `<img id="modalImg" src="${src}" alt="Full size image" style="max-width: 90%; max-height: 90%; border-radius: 10px;">`;
-                } else {
-                    modalImg.src = src;
-                }
-            }
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modalImg');
-            
-            if (modalContent.tagName === 'VIDEO') {
-                modalContent.pause();
-            }
-            
-            modal.classList.remove('active');
-        }
-
-        // Close modal on background click
-        document.getElementById('modal').onclick = function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        };
-    </script>
 </body>
 </html>
