@@ -37,24 +37,19 @@
         }
 
         .view-catalog-btn {
-            background: #c41e3a;
-            color: white;
-            padding: 18px 50px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.3em;
-            font-weight: bold;
+            display: inline-block;
             cursor: pointer;
             transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 5px 20px rgba(196, 30, 58, 0.3);
         }
 
-        .view-catalog-btn:hover {
-            background: #a01829;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.4);
+        .view-catalog-btn img {
+            width: 300px;
+            height: auto;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .view-catalog-btn:hover img {
+            transform: scale(1.05);
         }
 
         .social {
@@ -103,7 +98,9 @@
     <div class="container">
         <img src="images/logo.png" alt="Myna Logo" class="logo">
         
-        <a href="catalog.html" class="view-catalog-btn">VIEW CATALOG</a>
+        <a href="catalog.html" class="view-catalog-btn">
+            <img src="images/catalogue_tab_image.png" alt="View Catalogue">
+        </a>
         
         <div class="social">
             <p>@mynabackdrops</p>
