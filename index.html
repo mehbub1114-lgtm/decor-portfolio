@@ -27,7 +27,7 @@
         }
 
         .logo {
-            width: 200px;
+            width: 400px;
             height: auto;
             margin-bottom: 40px;
         }
@@ -40,6 +40,7 @@
             display: inline-block;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
         }
 
         .view-catalog-btn img {
@@ -50,6 +51,55 @@
 
         .view-catalog-btn:hover img {
             transform: scale(1.05);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 20px;
+            margin-top: 15px;
+            display: none;
+            min-width: 300px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .dropdown-menu a:hover {
+            background: #c41e3a;
+            color: white;
+            transform: translateX(5px);
         }
 
         .social {
@@ -98,9 +148,17 @@
     <div class="container">
         <img src="images/logo.png" alt="Myna Logo" class="logo">
         
-        <a href="catalog.html" class="view-catalog-btn">
+        <div class="view-catalog-btn" onclick="toggleDropdown()">
             <img src="images/catalogue_tab_image.png" alt="View Catalogue">
-        </a>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="favor-wall.html">🎁 Favor Wall</a>
+                <a href="rippled-arch.html">🌊 Rippled Arch</a>
+                <a href="solid-arch.html">⛩️ Solid Arch</a>
+                <a href="hollow-metal.html">⭕ Hollow Metal Arch</a>
+                <a href="welcome-signs.html">👋 Welcome Signs</a>
+                <a href="3d-signs.html">✨ 3D Signs</a>
+            </div>
+        </div>
         
         <div class="social">
             <p>@mynabackdrops</p>
@@ -110,5 +168,22 @@
             <a href="tel:+14169976627" class="phone-link">📞 Call Us: 416-997-6627</a>
         </div>
     </div>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const catalogBtn = document.querySelector('.view-catalog-btn');
+            const dropdown = document.getElementById('dropdownMenu');
+            
+            if (!catalogBtn.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
