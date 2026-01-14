@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favor Wall - Myna</title>
+    <title>Rippled Arch - Myna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background: #faf3e0;
             min-height: 100vh;
             padding: 20px;
@@ -42,11 +43,6 @@
             transform: translateY(-2px);
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -74,10 +70,6 @@
             height: 300px;
             object-fit: cover;
             display: block;
-        }
-
-        .gallery-item .delete-btn {
-            display: none;
         }
 
         .modal {
@@ -113,18 +105,7 @@
             cursor: pointer;
         }
 
-        .empty-message {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
-            font-size: 1.2em;
-        }
-
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
@@ -144,10 +125,30 @@
     </div>
 
     <script>
-        // Images stored in GitHub - add your image paths here
         const items = [
-            // Example: { type: 'image', src: 'images/favor-wall/image1.jpg' },
-            // Example: { type: 'video', src: 'images/favor-wall/video1.mp4' },
+            { type: 'video', src: 'images/rippled-arch/84c2c3e5ed4c440ab9ef50842c9f9210.mp4' },
+            { type: 'image', src: 'images/rippled-arch/IMG_0205.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_0520.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_0521.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_0522.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_1290.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_1737.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_1743.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_2389.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_2945.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_2997.jpg' },
+            { type: 'video', src: 'images/rippled-arch/IMG_7190.mp4' },
+            { type: 'image', src: 'images/rippled-arch/IMG_7447.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_7496.jpg' },
+            { type: 'video', src: 'images/rippled-arch/IMG_7772.mp4' },
+            { type: 'image', src: 'images/rippled-arch/IMG_7775.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_7864.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_7890.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_7909.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_9235.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_9291.jpg' },
+            { type: 'image', src: 'images/rippled-arch/IMG_9635.jpg' },
+            { type: 'video', src: 'images/rippled-arch/copy_28EA56E4-E10B-4AEE-BC87-31C649B5DA0B.mp4' }
         ];
 
         window.onload = function() {
@@ -157,11 +158,6 @@
         function displayGallery() {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
-
-            if (items.length === 0) {
-                gallery.innerHTML = '<div class="empty-message">No items available yet.</div>';
-                return;
-            }
 
             items.forEach((item, index) => {
                 createGalleryItem(item, index);
