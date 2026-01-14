@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Myna Backdrops & Decor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #faf3e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            background: #c41e3a;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 40px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #a01829;
+            transform: translateY(-2px);
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .contact-card h1 {
+            font-size: 3em;
+            color: #c41e3a;
+            margin-bottom: 20px;
+        }
+
+        .contact-card p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            background: #faf3e0;
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-item .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .contact-item h3 {
+            font-size: 1.3em;
+            color: #c41e3a;
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            font-size: 1.3em;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            color: #c41e3a;
+        }
+
+        .social-link {
+            margin-top: 40px;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .social-link a {
+            color: #c41e3a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .social-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .contact-card {
+                padding: 40px 20px;
+            }
+
+            .contact-card h1 {
+                font-size: 2em;
+            }
+
+            .contact-item a {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+        
+        <div class="contact-card">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you! Reach out to us for bookings and inquiries.</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:mynadecorstudio@gmail.com">mynadecorstudio@gmail.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <h3>Phone</h3>
+                    <a href="tel:+14169976627">+1 416-997-6627</a>
+                </div>
+            </div>
+
+            <div class="social-link">
+                <p>Follow us on Instagram: <a href="https://instagram.com/mynabackdrops" target="_blank">@mynabackdrops</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
