@@ -107,22 +107,18 @@
 
         .phone-link {
             display: inline-block;
-            background: #c41e3a;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 15px;
+            cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 3px 15px rgba(196, 30, 58, 0.3);
         }
 
-        .phone-link:hover {
-            background: #a01829;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(196, 30, 58, 0.4);
+        .phone-link img {
+            width: 300px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .phone-link:hover img {
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
@@ -186,7 +182,9 @@
         </div>
         
         <div class="contact">
-            <a href="tel:+14169976627" class="phone-link">📞 Call Us: 416-997-6627</a>
+            <a href="tel:+14169976627" class="phone-link">
+                <img src="images/callus.png" alt="Call Us">
+            </a>
         </div>
     </div>
 </body>
