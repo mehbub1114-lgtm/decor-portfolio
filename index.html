@@ -30,14 +30,14 @@
         .logo {
             width: 400px;
             height: auto;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .slogan {
             max-width: 600px;
             width: 100%;
             height: auto;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
 
         .buttons-container {
@@ -51,36 +51,80 @@
 
         .carousel-container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto 50px;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
-
-        .carousel-track {
+            position: relative;
             display: flex;
-            animation: slide 60s linear infinite;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
         }
 
-        .carousel-item {
-            min-width: 100%;
-            height: 500px;
+        .carousel-preview {
+            flex: 0 0 200px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+            cursor: pointer;
         }
 
-        .carousel-item img {
+        .carousel-preview:hover {
+            opacity: 0.8;
+        }
+
+        .carousel-preview img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-2300%); }
+        .carousel-main {
+            flex: 0 0 600px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            background: white;
         }
 
-        .carousel-track:hover {
-            animation-play-state: paused;
+        .carousel-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.3s;
+        }
+
+        .carousel-arrow:hover {
+            transform: scale(1.1);
+        }
+
+        .carousel-arrow.left {
+            left: 0;
+        }
+
+        .carousel-arrow.right {
+            right: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .carousel-preview {
+                display: none;
+            }
+            
+            .carousel-main {
+                flex: 0 0 80%;
+            }
         }
 
         .view-catalog-btn,
@@ -165,32 +209,61 @@
         </div>
 
         <div class="carousel-container">
-            <div class="carousel-track">
-                <div class="carousel-item"><img src="images/feature1.jpg" alt="Featured setup 1"></div>
-                <div class="carousel-item"><img src="images/feature2.jpg" alt="Featured setup 2"></div>
-                <div class="carousel-item"><img src="images/feature3.jpg" alt="Featured setup 3"></div>
-                <div class="carousel-item"><img src="images/feature4.jpg" alt="Featured setup 4"></div>
-                <div class="carousel-item"><img src="images/feature5.jpg" alt="Featured setup 5"></div>
-                <div class="carousel-item"><img src="images/feature6.jpg" alt="Featured setup 6"></div>
-                <div class="carousel-item"><img src="images/feature7.jpg" alt="Featured setup 7"></div>
-                <div class="carousel-item"><img src="images/feature8.jpg" alt="Featured setup 8"></div>
-                <div class="carousel-item"><img src="images/feature9.jpg" alt="Featured setup 9"></div>
-                <div class="carousel-item"><img src="images/feature10.jpg" alt="Featured setup 10"></div>
-                <div class="carousel-item"><img src="images/feature11.jpg" alt="Featured setup 11"></div>
-                <div class="carousel-item"><img src="images/feature12.jpg" alt="Featured setup 12"></div>
-                <div class="carousel-item"><img src="images/feature13.jpg" alt="Featured setup 13"></div>
-                <div class="carousel-item"><img src="images/feature14.jpg" alt="Featured setup 14"></div>
-                <div class="carousel-item"><img src="images/feature15.jpg" alt="Featured setup 15"></div>
-                <div class="carousel-item"><img src="images/feature16.jpg" alt="Featured setup 16"></div>
-                <div class="carousel-item"><img src="images/feature17.jpg" alt="Featured setup 17"></div>
-                <div class="carousel-item"><img src="images/feature18.jpg" alt="Featured setup 18"></div>
-                <div class="carousel-item"><img src="images/feature19.jpg" alt="Featured setup 19"></div>
-                <div class="carousel-item"><img src="images/feature20.jpg" alt="Featured setup 20"></div>
-                <div class="carousel-item"><img src="images/feature21.jpg" alt="Featured setup 21"></div>
-                <div class="carousel-item"><img src="images/feature22.jpg" alt="Featured setup 22"></div>
-                <div class="carousel-item"><img src="images/feature23.jpg" alt="Featured setup 23"></div>
+            <img src="images/left arrow.png" alt="Previous" class="carousel-arrow left" onclick="changeSlide(-1)">
+            
+            <div class="carousel-preview" id="prevPreview">
+                <img src="images/feature23.jpg" alt="Previous">
             </div>
+            
+            <div class="carousel-main">
+                <img id="mainImage" src="images/feature1.jpg" alt="Featured setup">
+            </div>
+            
+            <div class="carousel-preview" id="nextPreview">
+                <img src="images/feature2.jpg" alt="Next">
+            </div>
+            
+            <img src="images/right arrow.png" alt="Next" class="carousel-arrow right" onclick="changeSlide(1)">
         </div>
+
+        <script>
+            const images = [
+                'images/feature1.jpg', 'images/feature2.jpg', 'images/feature3.jpg',
+                'images/feature4.jpg', 'images/feature5.jpg', 'images/feature6.jpg',
+                'images/feature7.jpg', 'images/feature8.jpg', 'images/feature9.jpg',
+                'images/feature10.jpg', 'images/feature11.jpg', 'images/feature12.jpg',
+                'images/feature13.jpg', 'images/feature14.jpg', 'images/feature15.jpg',
+                'images/feature16.jpg', 'images/feature17.jpg', 'images/feature18.jpg',
+                'images/feature19.jpg', 'images/feature20.jpg', 'images/feature21.jpg',
+                'images/feature22.jpg', 'images/feature23.jpg'
+            ];
+            
+            let currentIndex = 0;
+            
+            function updateCarousel() {
+                const mainImg = document.getElementById('mainImage');
+                const prevImg = document.getElementById('prevPreview').querySelector('img');
+                const nextImg = document.getElementById('nextPreview').querySelector('img');
+                
+                mainImg.src = images[currentIndex];
+                
+                const prevIndex = (currentIndex - 1 + images.length) % images.length;
+                const nextIndex = (currentIndex + 1) % images.length;
+                
+                prevImg.src = images[prevIndex];
+                nextImg.src = images[nextIndex];
+            }
+            
+            function changeSlide(direction) {
+                currentIndex = (currentIndex + direction + images.length) % images.length;
+                updateCarousel();
+            }
+            
+            // Optional: Auto-advance every 5 seconds
+            setInterval(() => {
+                changeSlide(1);
+            }, 5000);
+        </script>
         
         <div class="social">
             <p>@mynabackdrops</p>
