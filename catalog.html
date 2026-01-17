@@ -24,22 +24,20 @@
         }
 
         .back-btn {
-            background: #c41e3a;
-            color: white;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
             display: inline-block;
+            cursor: pointer;
             transition: all 0.3s;
+            margin-bottom: 20px;
         }
 
-        .back-btn:hover {
-            background: #a01829;
-            transform: translateY(-2px);
+        .back-btn img {
+            width: 150px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .back-btn:hover img {
+            transform: scale(1.05);
         }
 
         header {
@@ -112,7 +110,9 @@
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-btn">← Back to Home</a>
+        <a href="index.html" class="back-btn">
+            <img src="images/7.png" alt="Back to Home">
+        </a>
         
         <header>
             <img src="images/explore.png" alt="Explore Our Catalogue">
