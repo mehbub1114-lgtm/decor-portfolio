@@ -54,7 +54,7 @@
             max-width: 700px;
             width: 100%;
             height: auto;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         .contact-card h1,
@@ -62,27 +62,14 @@
             display: none;
         }
 
-        .contact-info {
+        .contact-items-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 50px;
-            margin-top: 40px;
+            gap: 60px;
         }
 
-        .booking-btn {
-            margin-top: 50px;
-        }
-
-        .booking-btn img {
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .booking-btn:hover img {
-            transform: scale(1.05);
+        .contact-info {
+            display: contents;
         }
 
         .contact-item {
@@ -90,18 +77,24 @@
             padding: 0;
             border-radius: 15px;
             transition: all 0.3s;
+            display: block;
         }
 
-        .contact-item:hover {
+        .contact-item:hover,
+        .booking-btn:hover,
+        .social-link:hover {
             transform: scale(1.05);
         }
 
-        .contact-item img {
+        .contact-item img,
+        .booking-btn img,
+        .social-link img {
             width: 100%;
             max-width: 500px;
             height: auto;
             border-radius: 15px;
             cursor: pointer;
+            transition: transform 0.3s;
         }
 
         .contact-item .icon,
@@ -111,24 +104,16 @@
         }
 
         .social-link {
-            margin-top: 500px;
-        }
-
-        .social-link img {
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .social-link img:hover {
-            transform: scale(1.05);
+            display: block;
         }
 
         .social-link p,
         .social-link a {
             display: none;
+        }
+
+        .booking-btn {
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -155,7 +140,7 @@
         <div class="contact-card">
             <img src="images/6.png" alt="Get In Touch" class="header-img">
 
-            <div class="contact-info">
+            <div class="contact-items-wrapper">
                 <a href="mailto:mynadecorstudio@gmail.com" class="contact-item">
                     <img src="images/3.png" alt="Email Us">
                 </a>
@@ -163,15 +148,15 @@
                 <a href="tel:+14169976627" class="contact-item">
                     <img src="images/4.png" alt="Call Us">
                 </a>
+
+                <a href="booking-form.html" class="booking-btn">
+                    <img src="images/Bookingform.png" alt="Booking Form">
+                </a>
+
+                <a href="https://instagram.com/mynabackdrops" target="_blank" class="social-link">
+                    <img src="images/5.png" alt="Instagram">
+                </a>
             </div>
-
-            <a href="booking-form.html" class="booking-btn">
-                <img src="images/Bookingform.png" alt="Booking Form">
-            </a>
-
-            <a href="https://instagram.com/mynabackdrops" target="_blank" class="social-link">
-                <img src="images/5.png" alt="Instagram">
-            </a>
         </div>
     </div>
 </body>
