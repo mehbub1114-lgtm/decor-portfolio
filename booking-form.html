@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Myna Backdrops & Decor</title>
+    <title>Booking Form - Myna Backdrops & Decor</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -28,7 +28,7 @@
             display: inline-block;
             cursor: pointer;
             transition: all 0.3s;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .back-btn img {
@@ -41,137 +41,35 @@
             transform: scale(1.05);
         }
 
-        .contact-card {
-            background: transparent;
+        .form-container {
+            background: white;
             border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: none;
-            margin-top: 40px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
-        .contact-card .header-img {
-            max-width: 700px;
+        iframe {
             width: 100%;
-            height: auto;
-            margin-bottom: 40px;
-        }
-
-        .contact-card h1,
-        .contact-card > p {
-            display: none;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            margin-top: 40px;
-        }
-
-        .booking-btn {
-            margin-top: 50px;
-        }
-
-        .booking-btn img {
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .booking-btn:hover img {
-            transform: scale(1.05);
-        }
-
-        .contact-item {
-            background: transparent;
-            padding: 0;
-            border-radius: 15px;
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            transform: scale(1.05);
-        }
-
-        .contact-item img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 15px;
-            cursor: pointer;
-        }
-
-        .contact-item .icon,
-        .contact-item h3,
-        .contact-item a {
-            display: none;
-        }
-
-        .social-link {
-            margin-top: 500px;
-        }
-
-        .social-link img {
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .social-link img:hover {
-            transform: scale(1.05);
-        }
-
-        .social-link p,
-        .social-link a {
-            display: none;
+            min-height: 2100px;
+            border: none;
+            border-radius: 10px;
         }
 
         @media (max-width: 768px) {
-            .contact-card {
-                padding: 40px 20px;
-            }
-
-            .contact-card h1 {
-                font-size: 2em;
-            }
-
-            .contact-item a {
-                font-size: 1.1em;
+            .form-container {
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-btn">
-            <img src="images/7.png" alt="Back to Home">
+        <a href="contact.html" class="back-btn">
+            <img src="images/7.png" alt="Back to Contact">
         </a>
         
-        <div class="contact-card">
-            <img src="images/6.png" alt="Get In Touch" class="header-img">
-
-            <div class="contact-info">
-                <a href="mailto:mynadecorstudio@gmail.com" class="contact-item">
-                    <img src="images/3.png" alt="Email Us">
-                </a>
-
-                <a href="tel:+14169976627" class="contact-item">
-                    <img src="images/4.png" alt="Call Us">
-                </a>
-            </div>
-
-            <a href="booking-form.html" class="booking-btn">
-                <img src="images/Bookingform.png" alt="Booking Form">
-            </a>
-
-            <a href="https://instagram.com/mynabackdrops" target="_blank" class="social-link">
-                <img src="images/5.png" alt="Instagram">
-            </a>
+        <div class="form-container">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfaOR-QltvlDmp8cf_qzmj2cI4wnnoS03GD4DffOpaJVZsr8g/viewform?embedded=true" width="100%" height="2062" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
     </div>
 </body>
