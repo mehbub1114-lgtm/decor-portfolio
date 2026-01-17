@@ -53,12 +53,11 @@
             width: 100%;
             max-width: 1400px;
             margin: 0 auto 50px;
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 20px;
-            padding: 40px 150px;
+            padding: 40px 20px;
         }
 
         .carousel-preview {
@@ -97,24 +96,15 @@
         }
 
         .carousel-arrow {
-            position: absolute;
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             cursor: pointer;
-            z-index: 10;
             transition: transform 0.3s;
+            flex-shrink: 0;
         }
 
         .carousel-arrow:hover {
             transform: scale(1.1);
-        }
-
-        .carousel-arrow.left {
-            left: 10px;
-        }
-
-        .carousel-arrow.right {
-            right: 10px;
         }
 
         @media (max-width: 1024px) {
@@ -209,21 +199,21 @@
         </div>
 
         <div class="carousel-container">
-            <img src="images/left arrow.png" alt="Previous" class="carousel-arrow left" onclick="changeSlide(-1)">
-            
             <div class="carousel-preview" id="prevPreview">
                 <img src="images/feature23.jpg" alt="Previous">
             </div>
+            
+            <img src="images/left arrow.png" alt="Previous" class="carousel-arrow" onclick="changeSlide(-1)">
             
             <div class="carousel-main">
                 <img id="mainImage" src="images/feature1.jpg" alt="Featured setup">
             </div>
             
+            <img src="images/right arrow.png" alt="Next" class="carousel-arrow" onclick="changeSlide(1)">
+            
             <div class="carousel-preview" id="nextPreview">
                 <img src="images/feature2.jpg" alt="Next">
             </div>
-            
-            <img src="images/right arrow.png" alt="Next" class="carousel-arrow right" onclick="changeSlide(1)">
         </div>
 
         <script>
