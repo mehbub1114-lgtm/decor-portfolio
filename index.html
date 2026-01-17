@@ -53,7 +53,6 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto 50px;
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -97,24 +96,15 @@
         }
 
         .carousel-arrow {
-            position: absolute;
             width: 80px;
             height: 80px;
             cursor: pointer;
-            z-index: 10;
+            flex-shrink: 0;
             transition: transform 0.3s;
         }
 
         .carousel-arrow:hover {
             transform: scale(1.1);
-        }
-
-        .carousel-arrow.left {
-            left: 0;
-        }
-
-        .carousel-arrow.right {
-            right: 0;
         }
 
         @media (max-width: 1024px) {
@@ -124,6 +114,11 @@
             
             .carousel-main {
                 flex: 0 0 80%;
+            }
+            
+            .carousel-arrow {
+                width: 60px;
+                height: 60px;
             }
         }
 
@@ -153,10 +148,13 @@
         }
 
         .footer-image {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             height: auto;
             margin-top: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact {
@@ -275,7 +273,7 @@
             </a>
         </div>
 
-        <img src="images/8.png" alt="Footer" class="footer-image">
+        <img src="images/8.png" alt="Free Delivery in Toronto & Ottawa" class="footer-image">
     </div>
 </body>
 </html>
