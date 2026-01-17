@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favor Wall - Myna</title>
+    <title>Category - Myna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background: #faf3e0;
             min-height: 100vh;
             padding: 20px;
@@ -24,22 +25,20 @@
         }
 
         .back-btn {
-            background: #c41e3a;
-            color: white;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: none;
             display: inline-block;
+            cursor: pointer;
             transition: all 0.3s;
+            margin-bottom: 20px;
         }
 
-        .back-btn:hover {
-            background: #a01829;
-            transform: translateY(-2px);
+        .back-btn img {
+            width: 150px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .back-btn:hover img {
+            transform: scale(1.05);
         }
 
         header {
@@ -121,10 +120,6 @@
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
@@ -133,7 +128,9 @@
 </head>
 <body>
     <div class="container">
-        <a href="catalog.html" class="back-btn">← Back to Menu</a>
+        <a href="catalog.html" class="back-btn">
+            <img src="images/7.png" alt="Back to Menu">
+        </a>
         
         <div class="gallery" id="gallery"></div>
     </div>
@@ -144,10 +141,10 @@
     </div>
 
     <script>
-        // Images stored in GitHub - add your image paths here
+        // Add your images here - example:
         const items = [
-            // Example: { type: 'image', src: 'images/favor-wall/image1.jpg' },
-            // Example: { type: 'video', src: 'images/favor-wall/video1.mp4' },
+            // { type: 'image', src: 'images/category-name/image1.jpg' },
+            // { type: 'image', src: 'images/category-name/image2.jpg' },
         ];
 
         window.onload = function() {
