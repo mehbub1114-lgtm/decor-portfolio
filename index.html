@@ -95,14 +95,24 @@
         }
 
         .carousel-arrow {
-            width: 250px;
-            height: 100px;
+            width: 60px;
+            height: 60px;
+            background: #c41e3a;
+            border-radius: 50%;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            border: none;
         }
 
         .carousel-arrow:hover {
+            background: #a01829;
             transform: scale(1.1);
         }
 
@@ -202,13 +212,13 @@
                 <img src="images/feature23.jpg" alt="Previous">
             </div>
             
-            <img src="images/leftarrow.png" alt="Previous" class="carousel-arrow" onclick="changeSlide(-1)">
+            <button class="carousel-arrow" onclick="changeSlide(-1)">‹</button>
             
             <div class="carousel-main">
                 <img id="mainImage" src="images/feature1.jpg" alt="Featured setup">
             </div>
             
-            <img src="images/rightarrow.png" alt="Next" class="carousel-arrow" onclick="changeSlide(1)">
+            <button class="carousel-arrow" onclick="changeSlide(1)">›</button>
             
             <div class="carousel-preview" id="nextPreview">
                 <img src="images/feature2.jpg" alt="Next">
