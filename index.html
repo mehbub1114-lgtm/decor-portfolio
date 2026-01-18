@@ -31,6 +31,7 @@
             width: 400px;
             height: auto;
             margin-bottom: 5px;
+            margin-top: 40px;
         }
 
         .slogan {
@@ -123,6 +124,43 @@
             
             .carousel-main {
                 flex: 0 0 80%;
+                height: 400px;
+            }
+            
+            .carousel-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-main {
+                flex: 0 0 90%;
+                height: 350px;
+            }
+            
+            .carousel-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-main {
+                flex: 0 0 95%;
+                height: 280px;
+            }
+            
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .carousel-container {
+                gap: 10px;
             }
         }
 
@@ -152,7 +190,7 @@
         }
 
         .footer-image {
-            max-width: 800px;
+            max-width: 400px;
             width: 100%;
             height: auto;
             margin-top: 50px;
@@ -278,4 +316,3 @@
     </div>
 </body>
 </html>
-
