@@ -31,6 +31,7 @@
             width: 400px;
             height: auto;
             margin-bottom: 5px;
+            margin-top: 40px;
         }
 
         .slogan {
@@ -122,6 +123,75 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .carousel-main {
+                flex: 0 0 75%;
+                height: 400px;
+            }
+            
+            .carousel-arrow {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .carousel-container {
+                margin-bottom: 30px;
+                padding: 20px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 280px;
+                margin-top: 20px;
+            }
+            
+            .slogan {
+                max-width: 350px;
+                margin-bottom: 15px;
+            }
+            
+            .carousel-main {
+                flex: 0 0 70%;
+                height: 250px;
+            }
+            
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .carousel-container {
+                gap: 10px;
+                margin-bottom: 20px;
+                padding: 15px 5px;
+            }
+            
+            .buttons-container {
+                gap: 15px;
+                margin-bottom: 30px;
+                max-width: 90%;
+            }
+            
+            .view-catalog-btn img,
+            .nav-btn img {
+                width: 150px;
+            }
+            
+            .btn-booking img {
+                width: 250px !important;
+            }
+            
+            .phone-link img {
+                width: 300px;
+            }
+            
+            .footer-image {
+                max-width: 300px;
+                margin-top: 30px;
+            }
+        }
+
         .view-catalog-btn,
         .nav-btn {
             display: inline-block;
@@ -198,11 +268,14 @@
             <a href="catalog.html" class="view-catalog-btn">
                 <img src="images/catalogue_tab_image.png" alt="View Catalogue">
             </a>
+            <a href="prices.html" class="nav-btn">
+                <img src="images/prices_tab_image.png" alt="Prices">
+            </a>
             <a href="contact.html" class="nav-btn">
                 <img src="images/contact_tab_image.png" alt="Contact">
             </a>
-            <a href="prices.html" class="nav-btn">
-                <img src="images/prices_tab_image.png" alt="Prices">
+            <a href="booking-form.html" class="nav-btn btn-booking">
+                <img src="images/Bookingform.png" alt="Booking Inquiry">
             </a>
         </div>
 
