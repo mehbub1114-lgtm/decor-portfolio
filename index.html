@@ -61,26 +61,6 @@
             padding: 40px 20px;
         }
 
-        .carousel-preview {
-            flex: 0 0 200px;
-            height: 300px;
-            overflow: hidden;
-            border-radius: 15px;
-            opacity: 0.5;
-            transition: opacity 0.3s;
-            cursor: pointer;
-        }
-
-        .carousel-preview:hover {
-            opacity: 0.8;
-        }
-
-        .carousel-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .carousel-main {
             flex: 0 0 600px;
             height: 500px;
@@ -97,29 +77,37 @@
         }
 
         .carousel-arrow {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
+            background: #c41e3a;
+            border-radius: 50%;
             cursor: pointer;
+            transition: all 0.3s;
             flex-shrink: 0;
-            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .carousel-arrow:hover {
+            background: #a01829;
             transform: scale(1.1);
         }
 
         @media (max-width: 1024px) {
-            .carousel-preview {
-                display: none;
-            }
-            
             .carousel-main {
                 flex: 0 0 80%;
             }
             
             .carousel-arrow {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
             }
         }
 
@@ -130,8 +118,9 @@
             }
             
             .carousel-arrow {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
             }
             
             .carousel-container {
@@ -159,6 +148,7 @@
             .carousel-arrow {
                 width: 40px;
                 height: 40px;
+                font-size: 20px;
             }
             
             .carousel-container {
@@ -280,21 +270,13 @@
         </div>
 
         <div class="carousel-container">
-            <img src="images/leftarrow.png" alt="Previous" class="carousel-arrow left" onclick="changeSlide(-1)">
-            
-            <div class="carousel-preview" id="prevPreview">
-                <img src="images/feature23.jpg" alt="Previous">
-            </div>
+            <button class="carousel-arrow" onclick="changeSlide(-1)" aria-label="Previous">‹</button>
             
             <div class="carousel-main">
                 <img id="mainImage" src="images/feature1.jpg" alt="Featured setup">
             </div>
             
-            <div class="carousel-preview" id="nextPreview">
-                <img src="images/feature2.jpg" alt="Next">
-            </div>
-            
-            <img src="images/rightarrow.png" alt="Next" class="carousel-arrow right" onclick="changeSlide(1)">
+            <button class="carousel-arrow" onclick="changeSlide(1)" aria-label="Next">›</button>
         </div>
 
         <script>
@@ -313,16 +295,7 @@
             
             function updateCarousel() {
                 const mainImg = document.getElementById('mainImage');
-                const prevImg = document.getElementById('prevPreview').querySelector('img');
-                const nextImg = document.getElementById('nextPreview').querySelector('img');
-                
                 mainImg.src = images[currentIndex];
-                
-                const prevIndex = (currentIndex - 1 + images.length) % images.length;
-                const nextIndex = (currentIndex + 1) % images.length;
-                
-                prevImg.src = images[prevIndex];
-                nextImg.src = images[nextIndex];
             }
             
             function changeSlide(direction) {
