@@ -35,10 +35,33 @@
         }
 
         .slogan {
-            max-width: 600px;
-            width: 100%;
-            height: auto;
+            font-size: 2em;
+            font-weight: 700;
+            color: #333;
             margin-bottom: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            position: relative;
+        }
+
+        .slogan-text {
+            display: inline-block;
+            animation: slide 15s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .slogan:hover .slogan-text {
+            animation-play-state: paused;
         }
 
         .buttons-container {
@@ -112,6 +135,10 @@
         }
 
         @media (max-width: 768px) {
+            .slogan {
+                font-size: 1.5em;
+            }
+            
             .carousel-main {
                 flex: 0 0 75%;
                 height: 400px;
@@ -136,7 +163,7 @@
             }
             
             .slogan {
-                max-width: 350px;
+                font-size: 1.2em;
                 margin-bottom: 15px;
             }
             
@@ -252,7 +279,9 @@
 <body>
     <div class="container">
         <img src="images/logo.png" alt="Myna Logo" class="logo">
-        <img src="images/slogan.png" alt="Slogan" class="slogan">
+        <div class="slogan">
+            <span class="slogan-text">Find the perfect backdrop for your event</span>
+        </div>
         
         <div class="buttons-container">
             <a href="catalog.html" class="view-catalog-btn">
